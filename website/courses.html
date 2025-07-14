@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/courses.css">
+  <link rel="stylesheet" href="css/adaptation.css">
+  <link rel="shortcut icon" href="images/icon.svg" type="image/x-icon">
+  <title>Yuri Guitar</title>
+
+<body>
+  <div class="wrapper">
+    <header class="header">
+      <button class="burger burger--follow">
+        <span></span>
+      </button>
+      <div class="header__top">
+        <div class="container">
+          <div class="header__top-inner">
+            <a class="header__logo logo" href="index.html">
+              <img src="images/logo.svg" alt="Logo">
+            </a>
+            <nav class="header__nav">
+              <ul class="header__nav-list">
+                <li class="header__nav-item">
+                  <a href="about_us.html" class="header__nav-link">About us</a>
+                </li>
+                <li class="header__nav-item">
+                  <a href="courses.html" class="header__nav-link nav_active">Courses</a>
+                </li>
+                <li class="header__nav-item">
+                  <a href="events.html" class="header__nav-link">Events</a>
+                </li>
+                <li class="header__nav-item">
+                  <a href="guitar-tuner.html" class="header__nav-link ">Guitar Tuner</a>
+                </li>
+                <li class="header__nav-item">
+                  <a href="contacts.html" class="header__nav-link">Contacts</a>
+                </li>
+              </ul>
+            </nav>
+            <div class="header__btn-box">
+              <a class="header__top-button button button-large" href="index.html">Go Home</a>
+              <div class="header__user-nav">
+                <a class="header__user-btn" href="#" onclick="showComingSoon()">Login</a> /
+                <a class="header__user-btn" href="#" onclick="showComingSoon()">Register</a>
+              </div>
+            </div>
+            <div id="comingSoonBlock" class="coming-soon-block">
+              <div class="coming-soon-content">
+                <h2>Coming Soon</h2>
+                <p>This feature is coming soon. Stay tuned!</p>
+                <button onclick="hideComingSoon()">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="main">
+      <div class="container">
+        <section class="main__directions directions" id="directions">
+          <div class="container">
+            <div class="directions__inner">
+              <div class="directions__heading heading heading--text-center">
+                <p class="heading__subtitle">A Deeper Look into What We Teach</p>
+                <h2 class="heading__title">Exploring Our Educational Focus</h2>
+              </div>
+              <div class="directions__body">
+                <ul class="directions__filter-box">
+                  <li class="directions__filter-item">
+                    <button class="directions__filter-btn directions__filter-btn--active" type="button"
+                      data-filter="all">All</button>
+                  </li>
+                  <li class="directions__filter-item">
+                    <button class="directions__filter-btn" type="button"
+                      data-filter=".directions__list-item--absbeginner">Absloute Beginner</button>
+                  </li>
+                  <li class="directions__filter-item">
+                    <button class="directions__filter-btn" type="button"
+                      data-filter=".directions__list-item--beginner">Beginner</button>
+                  </li>
+                  <li class="directions__filter-item">
+                    <button class="directions__filter-btn" type="button" data-filter=".directions__list-item--medium">
+                      Intermediate</button>
+                  </li>
+                  <li class="directions__filter-item">
+                    <button class="directions__filter-btn" type="button"
+                      data-filter=".directions__list-item--advanced">Advanced</button>
+                  </li>
+                  <li class="directions__filter-item">
+                    <button class="directions__filter-btn" type="button"
+                      data-filter=".directions__list-item--pro">Professional</button>
+                  </li>
+                </ul>
+                <ul class="directions__list">
+                  <li class="mix directions__list-item directions__list-item--absbeginner" data-order="1">
+                    <a class="directions__list-link" href="courses/absolute_beginner.html">
+                      <div class="directions__image-box">
+                        <img src="images/directions/1.jpg" alt="">
+                      </div>
+                      <div class="directions__link-content">
+                        <div class="directions__link-tag">Absloute Beginner</div>
+                        <p class="directions__link-text">
+                          This course is specifically Perfect for those new to the subject. <br>Get started with the
+                          basics to
+                          build your foundation.
+                        </p>
+                        <div class="directions__link-btn">Check courses</div>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="mix directions__list-item directions__list-item--beginner" data-order="2">
+                    <a class="directions__list-link" href="courses/beginner.html">
+                      <div class="directions__image-box">
+                        <img src="images/directions/2.jpg" alt="">
+                      </div>
+                      <div class="directions__link-content">
+                        <div class="directions__link-tag">Beginner</div>
+                        <p class="directions__link-text">
+                          Start your journey in our subject with this course. Perfect for absolute beginners, you'll
+                          learn
+                          the core concepts and terminology to establish a solid foundation.
+                        </p>
+                        <div class="directions__link-btn">Check courses</div>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="mix directions__list-item directions__list-item--medium" data-order="3">
+                    <a class="directions__list-link" href="courses/intermediate.html">
+                      <div class="directions__image-box">
+                        <img src="images/directions/3.jpg" alt="">
+                      </div>
+                      <div class="directions__link-content">
+                        <div class="directions__link-tag">Intermediate</div>
+                        <p class="directions__link-text">
+                          Building on your foundational knowledge, this course takes you deeper into the subject,
+                          sharpening your skills and tackling more complex challenges.
+                        </p>
+                        <div class="directions__link-btn">Check courses</div>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="mix directions__list-item directions__list-item--advanced" data-order="4">
+                    <a class="directions__list-link" href="courses/advanced.html">
+                      <div class="directions__image-box">
+                        <img src="images/directions/4.jpg" alt="">
+                      </div>
+                      <div class="directions__link-content">
+                        <div class="directions__link-tag">Advanced</div>
+                        <p class="directions__link-text">
+                          This course is designed to help you reach the highest level of expertise, covering advanced
+                          topics and real-world applications.
+                        </p>
+                        <div class="directions__link-btn">Check courses</div>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="mix directions__list-item directions__list-item--pro" data-order="5">
+                    <a class="directions__list-link" href="courses/professional.html">
+                      <div class="directions__image-box">
+                        <img src="images/directions/5.jpg" alt="">
+                      </div>
+                      <div class="directions__link-content">
+                        <div class="directions__link-tag">Professional</div>
+                        <p class="directions__link-text">
+                          Prepare for a career with practical experience and hands-on projects in this course, bridging
+                          the gap between theory and practice.
+                        </p>
+                        <div class="directions__link-btn">Check courses</div>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="mix directions__list-item directions__list-item--empty" data-order="6">
+                    <span>New studying program coming soon...</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+  </main>
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="container">
+        <div class="footer__top-inner">
+          <div class="footer__top-col">
+            <a class="footer__logo logo" href="index.html">
+              <img src="images/logo.svg" alt="logo">
+            </a>
+            <div class="footer__top-text">
+              At Yuri's Guitar School, we excel at teaching you how to master the art of playing the guitar. Our team
+              of skilled instructors is dedicated to helping you become a proficient guitarist, guiding you through
+              every step of your musical journey.
+            </div>
+          </div>
+          <div class="footer__top-col">
+            <h3 class="footer__top-title footer__top-title--slide">SITE MAP</h3>
+            <ul class="footer__top-list">
+              <li class="footer__top-item">
+                <a class="footer__item-link" href="about_us.html">About Us</a>
+              </li>
+              <li class="footer__top-item">
+                <a class="footer__item-link" href="courses.html">Courses</a>
+              </li>
+              <li class="footer__top-item">
+                <a class="footer__item-link" href="events.html">Events</a>
+              </li>
+              <li class="footer__top-item">
+                <a class="footer__item-link" href="guitar-tuner.html">Guitar Tuner</a>
+              </li>
+              <li class="footer__top-item">
+                <a class="footer__item-link" href="contacts.html">Contacts</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer__top-col">
+            <h3 class="footer__top-title footer__top-title--slide">COURSES</h3>
+            <ul class="footer__top-list">
+              <li class="footer__top-item">
+                <a class="footer__item-link" href="courses/absolute_beginner.html">Absolute Beginner</a>
+              </li>
+              <li class="footer__top-item">
+                <a class="footer__item-link" href="courses/beginner.html">Beginner</a>
+              </li>
+              <li class="footer__top-item">
+                <a class="footer__item-link" href="courses/intermediate.html">Intermediate</a>
+              </li>
+              <li class="footer__top-item">
+                <a class="footer__item-link" href="courses/advanced.html">Advanced</a>
+              </li>
+              <li class="footer__top-item">
+                <a class="footer__item-link" href="courses/professional.html">Professional</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer__top-col">
+            <h3 class="footer__top-title footer__top-title--slide">CONTACT US</h3>
+            <ul class="footer__top-list">
+              <li class="footer__top-item">
+                <a class="footer__item-link" href="tel:+447575682638">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M5.66683 1.94857C5.11454 1.94857 4.66683 2.39628 4.66683 2.94857V13.0527C4.66683 13.605 5.11454 14.0527 5.66683 14.0527H10.3335C10.8858 14.0527 11.3335 13.605 11.3335 13.0527V2.94857C11.3335 2.39628 10.8858 1.94857 10.3335 1.94857H10.2779L10.1155 2.3382C10.012 2.58661 9.76928 2.74842 9.50016 2.74842H6.50016C6.23105 2.74842 5.98832 2.58661 5.8848 2.3382L5.72242 1.94857H5.66683ZM3.3335 2.94857C3.3335 1.6599 4.37817 0.615234 5.66683 0.615234H10.3335C11.6222 0.615234 12.6668 1.6599 12.6668 2.94857V13.0527C12.6668 14.3414 11.6222 15.3861 10.3335 15.3861H5.66683C4.37816 15.3861 3.3335 14.3414 3.3335 13.0527V2.94857Z"
+                      fill="white" />
+                  </svg>
+                  +44 7575682638
+                </a>
+              </li>
+              <li class="footer__top-item">
+                <a class="footer__item-link" href="mailto:contact@yuri.guitar.com">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M15.1668 11.9993V4.66602C15.1668 3.56145 14.2714 2.66602 13.1668 2.66602L2.83349 2.66603C1.72893 2.66603 0.833496 3.56146 0.833496 4.66603V11.9993C0.833496 13.1039 1.72893 13.9993 2.8335 13.9993L13.1668 13.9993C14.2714 13.9993 15.1668 13.1039 15.1668 11.9993ZM13.8335 6.17232V11.9993C13.8335 12.3675 13.535 12.666 13.1668 12.666L2.8335 12.666C2.46531 12.666 2.16683 12.3675 2.16683 11.9993L2.16683 6.17223L6.87561 9.3742C7.55433 9.83573 8.44613 9.83573 9.12485 9.3742L13.8335 6.17232ZM13.8259 4.56509C13.7773 4.24479 13.5007 3.99935 13.1668 3.99935L2.83349 3.99936C2.49965 3.99936 2.22311 4.24476 2.17443 4.56501L7.62535 8.27164C7.85159 8.42548 8.14886 8.42548 8.3751 8.27164L13.8259 4.56509Z"
+                      fill="white" />
+                  </svg>
+                  contact@yuri.guitar.com
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer__top-col">
+            <h3 class="footer__top-title">SIGN UP TO OUR NEWSLETTER</h3>
+            <form class="footer__form">
+              <div class="footer__form-items">
+                <input class="footer__form-input" type="email" placeholder="Email address" required>
+                <button class="footer__form-btn" type="submit"></button>
+              </div>
+              <div class="footer__form-desc">
+                *Subscribe to our newsletter to receive communications and early updates from Yuri Guitar SEO Agency.
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container">
+        <div class="footer__bottom-inner">
+          <div class="footer__copy">
+            © All rights reserved.
+            Made with
+            <span></span>
+            by Yuri Guitar
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/mixitup.min.js"></script>
+</body>
+</html>

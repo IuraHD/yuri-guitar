@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/fonts.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/tuner.css">
+	<link rel="stylesheet" href="css/adaptation.css">
+
+	<link rel="shortcut icon" href="images/icon.svg" type="image/x-icon">
+	<title>Yuri Guitar</title>
+	<script>
+		// Define the set of test frequencies that we'll use to analyze microphone data.
+		var C2 = 65.41; // C2 note, in Hz.
+		var notes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
+		var test_frequencies = [];
+		for (var i = 0; i < 30; i++) {
+			var note_frequency = C2 * Math.pow(2, i / 12);
+			var note_name = notes[i % 12];
+			var note = { "frequency": note_frequency, "name": note_name };
+			var just_above = { "frequency": note_frequency * Math.pow(2, 1 / 48), "name": note_name + " (a bit sharp)" };
+			var just_below = { "frequency": note_frequency * Math.pow(2, -1 / 48), "name": note_name + " (a bit flat)" };
+			test_frequencies = test_frequencies.concat([just_below, note, just_above]);
+		}
+
+		window.addEventListener("load", initialize);
+
+		var correlation_worker = new Worker("correlation_worker.js");
+		correlation_worker.addEventListener("message", interpret_correlation_result);
+
+		function initialize() {
+			var get_user_media = navigator.getUserMedia;
+			get_user_media = get_user_media || navigator.webkitGetUserMedia;
+			get_user_media = get_user_media || navigator.mozGetUserMedia;
+			get_user_media.call(navigator, { "audio": true }, use_stream, function () { });
+
+			document.getElementById("play-note").addEventListener("click", toggle_playing_note);
+		}
+
+		function use_stream(stream) {
+			var audio_context = new AudioContext();
+			var microphone = audio_context.createMediaStreamSource(stream);
+			window.source = microphone; // Workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=934512
+			var script_processor = audio_context.createScriptProcessor(1024, 1, 1);
+
+			script_processor.connect(audio_context.destination);
+			microphone.connect(script_processor);
+
+			var buffer = [];
+			var sample_length_milliseconds = 100;
+			var recording = true;
+
+			// Need to leak this function into the global namespace so it doesn't get
+			// prematurely garbage-collected.
+			// http://lists.w3.org/Archives/Public/public-audio/2013JanMar/0304.html
+			window.capture_audio = function (event) {
+				if (!recording)
+					return;
+
+				buffer = buffer.concat(Array.prototype.slice.call(event.inputBuffer.getChannelData(0)));
+
+				// Stop recording after sample_length_milliseconds.
+				if (buffer.length > sample_length_milliseconds * audio_context.sampleRate / 1000) {
+					recording = false;
+
+					correlation_worker.postMessage
+						(
+							{
+								"timeseries": buffer,
+								"test_frequencies": test_frequencies,
+								"sample_rate": audio_context.sampleRate
+							}
+						);
+
+					buffer = [];
+					setTimeout(function () { recording = true; }, 250);
+				}
+			};
+
+			script_processor.onaudioprocess = window.capture_audio;
+		}
+
+		function interpret_correlation_result(event) {
+			var timeseries = event.data.timeseries;
+			var frequency_amplitudes = event.data.frequency_amplitudes;
+
+			// Compute the (squared) magnitudes of the complex amplitudes for each
+			// test frequency.
+			var magnitudes = frequency_amplitudes.map(function (z) { return z[0] * z[0] + z[1] * z[1]; });
+
+			// Find the maximum in the list of magnitudes.
+			var maximum_index = -1;
+			var maximum_magnitude = 0;
+			for (var i = 0; i < magnitudes.length; i++) {
+				if (magnitudes[i] <= maximum_magnitude)
+					continue;
+
+				maximum_index = i;
+				maximum_magnitude = magnitudes[i];
+			}
+
+			// Compute the average magnitude. We'll only pay attention to frequencies
+			// with magnitudes significantly above average.
+			var average = magnitudes.reduce(function (a, b) { return a + b; }, 0) / magnitudes.length;
+			var confidence = maximum_magnitude / average;
+			var confidence_threshold = 10; // empirical, arbitrary.
+			if (confidence > confidence_threshold) {
+				var dominant_frequency = test_frequencies[maximum_index];
+				document.getElementById("note-name").textContent = dominant_frequency.name;
+				document.getElementById("frequency").textContent = dominant_frequency.frequency;
+			}
+		}
+
+		// Unnecessary addition of button to play an E note.
+		var note_context = new AudioContext();
+		var note_node = note_context.createOscillator();
+		var gain_node = note_context.createGain();
+		note_node.frequency = C2 * Math.pow(2, 4 / 12); // E, ~82.41 Hz.
+		gain_node.gain.value = 0;
+		note_node.connect(gain_node);
+		gain_node.connect(note_context.destination);
+		note_node.start();
+
+		var playing = false;
+		function toggle_playing_note() {
+			playing = !playing;
+			if (playing)
+				gain_node.gain.value = 0.1;
+			else
+				gain_node.gain.value = 0;
+		}
+	</script>
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<button class="burger burger--follow">
+        <span></span>
+      </button>
+			<div class="header__top">
+				<div class="container">
+					<div class="header__top-inner">
+						<a class="header__logo logo" href="index.html">
+							<img src="images/logo.svg" alt="Logo">
+						</a>
+						<nav class="header__nav">
+							<ul class="header__nav-list">
+								<li class="header__nav-item">
+									<a href="about_us.html" class="header__nav-link">About us</a>
+								</li>
+								<li class="header__nav-item">
+									<a href="courses.html" class="header__nav-link">Courses</a>
+								</li>
+								<li class="header__nav-item">
+									<a href="events.html" class="header__nav-link">Events</a>
+								</li>
+								<li class="header__nav-item">
+									<a href="guitar-tuner.html" class="header__nav-link nav_active">Guitar Tuner</a>
+								</li>
+								<li class="header__nav-item">
+									<a href="contacts.html" class="header__nav-link">Contacts</a>
+								</li>
+							</ul>
+						</nav>
+						<div class="header__btn-box">
+              <a class="header__top-button button button-large" href="index.html">Go Home</a>
+              <div class="header__user-nav">
+                <a class="header__user-btn" href="#" onclick="showComingSoon()">Login</a> /
+                <a class="header__user-btn" href="#" onclick="showComingSoon()">Register</a>
+              </div>
+            </div>
+            <div id="comingSoonBlock" class="coming-soon-block">
+              <div class="coming-soon-content">
+                <h2>Coming Soon</h2>
+                <p>This feature is coming soon. Stay tuned!</p>
+                <button onclick="hideComingSoon()">Close</button>
+              </div>
+            </div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main class="main">
+			<button class="scroll-to-top">
+				<svg viewBox="0 0 24 24">
+					<path fill="#fff" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
+				</svg>
+			</button>
+			<div class="container">
+				<div class="tuner">
+					<h1 class="tuner_title">Let's tune your Guitar</h1>
+					<p class="tuner__text">It sounds like you're playing...</p>
+					<h2 class="tuner__note" id="note-name"></h2>
+					<p>
+						<span>Frequency (Hz):</span>
+						<span class="tuner_hz" id="frequency"></span>
+					</p>
+					<div class="guitar_check-btn">
+						<button class="sound-button button" data-sound="sound1">E</button>
+						<button class="sound-button button" data-sound="sound2">B</button>
+						<button class="sound-button button" data-sound="sound3">G</button>
+						<button class="sound-button button" data-sound="sound4">D</button>
+						<button class="sound-button button" data-sound="sound5">A</button>
+						<button class="sound-button button" data-sound="sound6">E</button>
+					</div>
+				</div>
+				<div class="guitar_check">
+					<audio id="sound1" src="tuner/sounds/1st_String_E.mp3"></audio>
+					<audio id="sound2" src="tuner/sounds/2nd_String_B_.mp3"></audio>
+					<audio id="sound3" src="tuner/sounds/3rd_String_G.mp3"></audio>
+					<audio id="sound4" src="tuner/sounds/4th_String_D.mp3"></audio>
+					<audio id="sound5" src="tuner/sounds/5th_String_A.mp3"></audio>
+					<audio id="sound6" src="tuner/sounds/6th_String_E.mp3"></audio>
+					<div class="melody">
+						<div class="melody__header">You can try classical fingerpicking pressing buttons</div>
+						<div class="melody__text">6-3-2-3-1-3-2-3 <br>5-3-2-3-1-3-2-3 <br>4-3-2-3-1-3-2-3 <br>4-3-2-3-1-3-2-3</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="footer__top">
+				<div class="container">
+					<div class="footer__top-inner">
+						<div class="footer__top-col">
+							<a class="footer__logo logo" href="index.html">
+								<img src="images/logo.svg" alt="logo">
+							</a>
+							<div class="footer__top-text">
+								At Yuri's Guitar School, we excel at teaching you how to master the art of playing the guitar. Our team
+								of skilled instructors is dedicated to helping you become a proficient guitarist, guiding you through
+								every step of your musical journey.
+							</div>
+						</div>
+						<div class="footer__top-col">
+							<h3 class="footer__top-title footer__top-title--slide">SITE MAP</h3>
+							<ul class="footer__top-list">
+								<li class="footer__top-item">
+									<a class="footer__item-link" href="about_us.html">About Us</a>
+								</li>
+								<li class="footer__top-item">
+									<a class="footer__item-link" href="courses.html">Courses</a>
+								</li>
+								<li class="footer__top-item">
+									<a class="footer__item-link" href="events.html">Events</a>
+								</li>
+								<li class="footer__top-item">
+									<a class="footer__item-link" href="guitar-tuner.html">Guitar Tuner</a>
+								</li>
+								<li class="footer__top-item">
+									<a class="footer__item-link" href="contacts.html">Contacts</a>
+								</li>
+							</ul>
+						</div>
+						<div class="footer__top-col">
+							<h3 class="footer__top-title footer__top-title--slide">COURSES</h3>
+							<ul class="footer__top-list">
+								<li class="footer__top-item">
+									<a class="footer__item-link" href="courses/absolute_beginner.html">Absolute Beginner</a>
+								</li>
+								<li class="footer__top-item">
+									<a class="footer__item-link" href="courses/beginner.html">Beginner</a>
+								</li>
+								<li class="footer__top-item">
+									<a class="footer__item-link" href="courses/intermediate.html">Intermediate</a>
+								</li>
+								<li class="footer__top-item">
+									<a class="footer__item-link" href="courses/advanced.html">Advanced</a>
+								</li>
+								<li class="footer__top-item">
+									<a class="footer__item-link" href="courses/professional.html">Professional</a>
+								</li>
+							</ul>
+						</div>
+						<div class="footer__top-col">
+							<h3 class="footer__top-title footer__top-title--slide">CONTACT US</h3>
+							<ul class="footer__top-list">
+								<li class="footer__top-item">
+									<a class="footer__item-link" href="tel:+447575682638">
+										<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path fill-rule="evenodd" clip-rule="evenodd"
+												d="M5.66683 1.94857C5.11454 1.94857 4.66683 2.39628 4.66683 2.94857V13.0527C4.66683 13.605 5.11454 14.0527 5.66683 14.0527H10.3335C10.8858 14.0527 11.3335 13.605 11.3335 13.0527V2.94857C11.3335 2.39628 10.8858 1.94857 10.3335 1.94857H10.2779L10.1155 2.3382C10.012 2.58661 9.76928 2.74842 9.50016 2.74842H6.50016C6.23105 2.74842 5.98832 2.58661 5.8848 2.3382L5.72242 1.94857H5.66683ZM3.3335 2.94857C3.3335 1.6599 4.37817 0.615234 5.66683 0.615234H10.3335C11.6222 0.615234 12.6668 1.6599 12.6668 2.94857V13.0527C12.6668 14.3414 11.6222 15.3861 10.3335 15.3861H5.66683C4.37816 15.3861 3.3335 14.3414 3.3335 13.0527V2.94857Z"
+												fill="white" />
+										</svg>
+										+44 7575682638
+									</a>
+								</li>
+								<li class="footer__top-item">
+									<a class="footer__item-link" href="mailto:contact@yuri.guitar.com">
+										<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path fill-rule="evenodd" clip-rule="evenodd"
+												d="M15.1668 11.9993V4.66602C15.1668 3.56145 14.2714 2.66602 13.1668 2.66602L2.83349 2.66603C1.72893 2.66603 0.833496 3.56146 0.833496 4.66603V11.9993C0.833496 13.1039 1.72893 13.9993 2.8335 13.9993L13.1668 13.9993C14.2714 13.9993 15.1668 13.1039 15.1668 11.9993ZM13.8335 6.17232V11.9993C13.8335 12.3675 13.535 12.666 13.1668 12.666L2.8335 12.666C2.46531 12.666 2.16683 12.3675 2.16683 11.9993L2.16683 6.17223L6.87561 9.3742C7.55433 9.83573 8.44613 9.83573 9.12485 9.3742L13.8335 6.17232ZM13.8259 4.56509C13.7773 4.24479 13.5007 3.99935 13.1668 3.99935L2.83349 3.99936C2.49965 3.99936 2.22311 4.24476 2.17443 4.56501L7.62535 8.27164C7.85159 8.42548 8.14886 8.42548 8.3751 8.27164L13.8259 4.56509Z"
+												fill="white" />
+										</svg>
+										contact@yuri.guitar.com
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="footer__top-col">
+							<h3 class="footer__top-title">SIGN UP TO OUR NEWSLETTER</h3>
+							<form class="footer__form">
+								<div class="footer__form-items">
+									<input class="footer__form-input" type="email" placeholder="Email address" required>
+									<button class="footer__form-btn" type="submit"></button>
+								</div>
+								<div class="footer__form-desc">
+									*Subscribe to our newsletter to receive communications and early updates from Yuri Guitar SEO Agency.
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer__bottom">
+				<div class="container">
+					<div class="footer__bottom-inner">
+						<div class="footer__copy">
+							© All rights reserved.
+							Made with
+							<span></span>
+							by Yuri Guitar
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="js/play.js"></script>
+	<script src="js/main.js"></script>
+</body>
+
+</html>

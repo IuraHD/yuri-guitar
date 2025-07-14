@@ -1,0 +1,76 @@
+.header {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.button-large{
+  padding: 0 65px;
+}
+.tuner_title {
+  font-size: 60px;
+  margin-bottom: 10px;
+}
+
+.tuner__note {
+  font-size: 48px;
+}
+
+.tuner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.guitar_check {
+  display: flex;
+  flex-direction: column;
+}
+
+.guitar_check-btn {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.sound-button {
+  box-sizing: border-box;
+  border-radius: 50%; /* Make the button circular */
+  padding-top: 18px;
+padding-bottom: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px; /* Add margin for spacing between buttons */
+  border: 2px solid #fff;
+}
+.sound-button:last-child {
+  margin-right: 0px;
+}
+
+.melody {
+  display: flex;
+  flex-direction: column;
+  background: #b4b2b293;
+  border-radius: 10px;
+  align-self: center;
+}
+
+.melody__header {
+  margin: 30px;
+  display: flex;
+  font-size: 32px;
+  align-self: center;
+  font-weight: 700;
+}
+
+.melody__text {
+  font-size: 24px;
+  display: flex;
+  line-height: 1.2;
+  align-self: center;
+  margin-bottom: 30px;
+}
+.main {
+  padding-bottom: 20px;
+}

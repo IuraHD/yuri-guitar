@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" href="icon.svg" type="image/x-icon">
+    <title>Yuri Guitar School Website Specification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background-color: #222;
+            color: #fff;
+            padding: 10px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+        }
+
+        nav ul {
+            background-color: #333;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav li {
+            display: inline;
+            margin: 10px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        a {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .persona-card {
+            width: 300px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 5px;
+            display: inline-block;
+            text-align: left;
+        }
+
+        .persona-name {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .persona-details {
+            margin-top: 10px;
+        }
+
+        .persona-image {
+            max-width: 100%;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background-color: #fff;
+            /* Set the background color for the table */
+            border: 1px solid #333;
+            /* Add a border to the table */
+            color: #333;
+            /* Set the text color */
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 8px;
+            border: 1px solid #333;
+            /* Add borders to table cells */
+        }
+
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Yuri Guitar School Website Specification</h1>
+
+    <h2>Objective/Goals</h2>
+    <p>The objective of the "Yuri Guitar School" website is to provide a comprehensive online platform for individuals
+        interested in learning how to play the guitar, while encouraging visitors to develop new interests, engage in
+        physical activity, and stimulate their intellectual thinking. The primary goals are:</p>
+    <ul>
+        <li>To offer high-quality guitar lessons and tutorials that serve as a gateway to exploring the world of music
+            and creativity.</li>
+        <li>To inspire visitors to learn guitar and engage in active music-making and performance, encouraging physical
+            activity.</li>
+        <li>To stimulate intellectual thinking by providing educational content on music theory, history, and cultural
+            aspects related to the guitar.</li>
+    </ul>
+
+    <h2>Key Audience(s)</h2>
+    <p>The key audience for the "Yuri Guitar School" website includes:</p>
+    <ul>
+        <li>Beginners seeking step-by-step lessons to ignite their passion for guitar and music.</li>
+        <li>Intermediate and advanced players who wish to expand their creativity and explore live performance
+            opportunities.</li>
+        <li>Parents and guardians looking to involve their children in a holistic music education that includes both
+            theory and practice.</li>
+        <li>Music educators and enthusiasts interested in the cultural and historical aspects of the guitar.</li>
+    </ul>
+    <div class="persona-card">
+        <img class="persona-image" src="persona/persona1.jpg" alt="Beginner Bob">
+        <!-- https://www.freepik.com/free-photo/portrait-interesting-young-man-winter-clothes_6432735.htm#query=bob%20man&position=10&from_view=search&track=ais -->
+        <div class="persona-name">Persona 1: Beginner Bob</div>
+        <div class="persona-details">
+            <p><strong>Age:</strong> 25</p>
+            <p><strong>Background:</strong> A complete beginner in guitar, Bob has always wanted to learn to play.</p>
+            <p><strong>Goals:</strong> Bob's primary goal is to learn the basics of playing the guitar and eventually
+                strum some of his favorite songs.</p>
+            <p><strong>Challenges:</strong> Bob might feel overwhelmed by the complexity of the guitar initially and may
+                be looking for a structured and encouraging learning environment.</p>
+            <p><strong>How Yuri Guitar School Can Help:</strong> Yuri Guitar School can provide Bob with a dedicated
+                section for absolute beginners, offering step-by-step lessons, chord charts, and interactive tools to
+                make his learning experience enjoyable and engaging.</p>
+        </div>
+    </div>
+
+    <div class="persona-card">
+        <img class="persona-image" src="persona/persona2.jpg" alt="Pro Musician Maria">
+        <!-- https://www.freepik.com/free-photo/woman-couch-home-during-coronavirus-quarantine_19100561.htm#query=bob%20woman&position=11&from_view=search&track=ais -->
+        <div class="persona-name">Persona 2: Pro Musician Maria</div>
+        <div class="persona-details">
+            <p><strong>Age:</strong> 30</p>
+            <p><strong>Background:</strong> Maria is an experienced musician who plays guitar in a band.</p>
+            <p><strong>Goals:</strong> Maria wants to enhance her guitar-playing skills, learn advanced techniques, and
+                find inspiration for her band's music.</p>
+            <p><strong>Challenges:</strong> Maria might find it challenging to find lessons and resources that match her
+                skill level.</p>
+            <p><strong>How Yuri Guitar School Can Help:</strong> Yuri Guitar School can offer Maria a dedicated section
+                for professional players, providing advanced lessons, masterclasses, and access to renowned guitar
+                instructors.</p>
+        </div>
+    </div>
+    <div class="persona-card">
+        <img class="persona-image" src="persona/persona3.jpg" alt="Teen Guitarist 2">
+        <!-- https://www.freepik.com/free-photo/portrait-fashionable-boy-against-blue-wall_4647736.htm#query=teeenager%20boy&position=7&from_view=search&track=ais -->
+        <div class="persona-name">Persona 2: Ethan</div>
+        <div class="persona-details">
+            <p><strong>Age:</strong> 16</p>
+            <p><strong>Background:</strong> Ethan is a teenager who recently started learning the guitar. He's excited
+                to explore this new hobby.</p>
+            <p><strong>Goals:</strong> Ethan's goal is to learn the basics of playing the guitar, strum some popular
+                songs, and have fun while doing it.</p>
+            <p><strong>Challenges:</strong> Ethan is a complete beginner and needs beginner-friendly lessons and
+                guidance to get started.</p>
+            <p><strong>How Yuri Guitar School Can Help:</strong> Yuri Guitar School can provide Ethan with a dedicated
+                section for absolute beginners, offering step-by-step lessons, chord charts, and interactive tools to
+                make his learning experience enjoyable and engaging.</p>
+        </div>
+    </div>
+    <h2>Provisional Site Structure</h2>
+    <p>The website will consist of the following content pages:</p>
+    <ol>
+        <li>About Us: Information about the school, instructors, and the mission to inspire creativity, musical
+            exploration, and learning.</li>
+        <li>Courses: Categorized guitar lessons for different skill levels:
+            <ul>
+                <li>Absolute Beginner</li>
+                <li>Beginner</li>
+                <li>Intermediate</li>
+                <li>Advanced</li>
+                <li>Professional</li>
+            </ul>
+        </li>
+        <li>Events: A page featuring information on upcoming music events and activities to encourage active
+            participation.</li>
+        <li>Guitar Tuner: A working guitar tuner tool for users to tune their guitars and actively engage in
+            music-making.</li>
+        <li>Contacts: A page for user inquiries, feedback, and support, fostering communication.</li>
+    </ol>
+    <div class="mxgraph" style="max-width:100%;border:1px solid transparent;"
+        data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;xml&quot;:&quot;&lt;mxfile host=\&quot;app.diagrams.net\&quot; modified=\&quot;2023-10-31T13:41:27.052Z\&quot; agent=\&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36\&quot; etag=\&quot;V9b4Gai05i4ssOZJ2QZm\&quot; version=\&quot;21.7.5\&quot; type=\&quot;device\&quot;&gt;&lt;diagram name=\&quot;Page-1\&quot; id=\&quot;VPmsry6fEXd3wFsQwz10\&quot;&gt;&lt;mxGraphModel dx=\&quot;1050\&quot; dy=\&quot;553\&quot; grid=\&quot;1\&quot; gridSize=\&quot;10\&quot; guides=\&quot;1\&quot; tooltips=\&quot;1\&quot; connect=\&quot;1\&quot; arrows=\&quot;1\&quot; fold=\&quot;1\&quot; page=\&quot;1\&quot; pageScale=\&quot;1\&quot; pageWidth=\&quot;827\&quot; pageHeight=\&quot;1169\&quot; math=\&quot;0\&quot; shadow=\&quot;0\&quot;&gt;&lt;root&gt;&lt;mxCell id=\&quot;0\&quot;/&gt;&lt;mxCell id=\&quot;1\&quot; parent=\&quot;0\&quot;/&gt;&lt;mxCell id=\&quot;306XRl1-5dwJWlsaNSLU-6\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; target=\&quot;306XRl1-5dwJWlsaNSLU-4\&quot;&gt;&lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;&gt;&lt;mxPoint x=\&quot;414\&quot; y=\&quot;140\&quot; as=\&quot;sourcePoint\&quot;/&gt;&lt;/mxGeometry&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;306XRl1-5dwJWlsaNSLU-11\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; target=\&quot;306XRl1-5dwJWlsaNSLU-2\&quot;&gt;&lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;&gt;&lt;mxPoint x=\&quot;414\&quot; y=\&quot;140\&quot; as=\&quot;sourcePoint\&quot;/&gt;&lt;/mxGeometry&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;306XRl1-5dwJWlsaNSLU-12\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; target=\&quot;306XRl1-5dwJWlsaNSLU-3\&quot;&gt;&lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;&gt;&lt;mxPoint x=\&quot;414\&quot; y=\&quot;140\&quot; as=\&quot;sourcePoint\&quot;/&gt;&lt;/mxGeometry&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;306XRl1-5dwJWlsaNSLU-13\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; target=\&quot;306XRl1-5dwJWlsaNSLU-5\&quot;&gt;&lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;&gt;&lt;mxPoint x=\&quot;414\&quot; y=\&quot;140\&quot; as=\&quot;sourcePoint\&quot;/&gt;&lt;/mxGeometry&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;306XRl1-5dwJWlsaNSLU-2\&quot; value=\&quot;Events\&quot; style=\&quot;rounded=1;whiteSpace=wrap;html=1;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;&gt;&lt;mxGeometry x=\&quot;440\&quot; y=\&quot;180\&quot; width=\&quot;120\&quot; height=\&quot;60\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;306XRl1-5dwJWlsaNSLU-3\&quot; value=\&quot;Contacts\&quot; style=\&quot;rounded=1;whiteSpace=wrap;html=1;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;&gt;&lt;mxGeometry x=\&quot;590\&quot; y=\&quot;180\&quot; width=\&quot;120\&quot; height=\&quot;60\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;306XRl1-5dwJWlsaNSLU-4\&quot; value=\&quot;About Us\&quot; style=\&quot;rounded=1;whiteSpace=wrap;html=1;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;&gt;&lt;mxGeometry x=\&quot;120\&quot; y=\&quot;180\&quot; width=\&quot;120\&quot; height=\&quot;60\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;306XRl1-5dwJWlsaNSLU-29\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;306XRl1-5dwJWlsaNSLU-5\&quot; target=\&quot;306XRl1-5dwJWlsaNSLU-19\&quot;&gt;&lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;306XRl1-5dwJWlsaNSLU-30\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;306XRl1-5dwJWlsaNSLU-5\&quot; target=\&quot;306XRl1-5dwJWlsaNSLU-20\&quot;&gt;&lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;306XRl1-5dwJWlsaNSLU-31\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;306XRl1-5dwJWlsaNSLU-5\&quot; target=\&quot;306XRl1-5dwJWlsaNSLU-17\&quot;&gt;&lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;306XRl1-5dwJWlsaNSLU-32\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;306XRl1-5dwJWlsaNSLU-5\&quot; target=\&quot;306XRl1-5dwJWlsaNSLU-18\&quot;&gt;&lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;306XRl1-5dwJWlsaNSLU-33\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;306XRl1-5dwJWlsaNSLU-5\&quot; target=\&quot;306XRl1-5dwJWlsaNSLU-22\&quot;&gt;&lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;306XRl1-5dwJWlsaNSLU-5\&quot; value=\&quot;Courses\&quot; style=\&quot;rounded=1;whiteSpace=wrap;html=1;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;&gt;&lt;mxGeometry x=\&quot;280\&quot; y=\&quot;180\&quot; width=\&quot;120\&quot; height=\&quot;60\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;306XRl1-5dwJWlsaNSLU-16\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;306XRl1-5dwJWlsaNSLU-15\&quot; target=\&quot;306XRl1-5dwJWlsaNSLU-5\&quot;&gt;&lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;306XRl1-5dwJWlsaNSLU-15\&quot; value=\&quot;Home\&quot; style=\&quot;rounded=1;whiteSpace=wrap;html=1;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;&gt;&lt;mxGeometry x=\&quot;354\&quot; y=\&quot;40\&quot; width=\&quot;120\&quot; height=\&quot;60\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;306XRl1-5dwJWlsaNSLU-17\&quot; value=\&quot;Intermediate\&quot; style=\&quot;rounded=1;whiteSpace=wrap;html=1;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;&gt;&lt;mxGeometry x=\&quot;377\&quot; y=\&quot;280\&quot; width=\&quot;86\&quot; height=\&quot;50\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;306XRl1-5dwJWlsaNSLU-18\&quot; value=\&quot;Advanced\&quot; style=\&quot;rounded=1;whiteSpace=wrap;html=1;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;&gt;&lt;mxGeometry x=\&quot;474\&quot; y=\&quot;280\&quot; width=\&quot;86\&quot; height=\&quot;50\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;306XRl1-5dwJWlsaNSLU-19\&quot; value=\&quot;Absolute&amp;amp;nbsp;&amp;lt;br&amp;gt;Beginner\&quot; style=\&quot;rounded=1;whiteSpace=wrap;html=1;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;&gt;&lt;mxGeometry x=\&quot;180\&quot; y=\&quot;280\&quot; width=\&quot;86\&quot; height=\&quot;50\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;306XRl1-5dwJWlsaNSLU-20\&quot; value=\&quot;Beginner\&quot; style=\&quot;rounded=1;whiteSpace=wrap;html=1;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;&gt;&lt;mxGeometry x=\&quot;280\&quot; y=\&quot;280\&quot; width=\&quot;86\&quot; height=\&quot;50\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;306XRl1-5dwJWlsaNSLU-22\&quot; value=\&quot;Professional\&quot; style=\&quot;rounded=1;whiteSpace=wrap;html=1;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;&gt;&lt;mxGeometry x=\&quot;570\&quot; y=\&quot;280\&quot; width=\&quot;86\&quot; height=\&quot;50\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;&lt;/diagram&gt;&lt;/mxfile&gt;&quot;,&quot;toolbar&quot;:&quot;pages zoom layers lightbox&quot;,&quot;page&quot;:0}">
+    </div>
+    <h2>Here you can see the wireframes</h2>
+    <h2>!! Code for every page in folder 'website' !!</h2>
+    <img src="https://i.ibb.co/4sqrZJg/home-large.png" alt="Home">
+    <img src="wireframe/homepage_high-fidelity.png" width="50%" alt="Home High fidelity wireframe">Home
+    <img src="https://i.ibb.co/vsWPfLf/about-us.png" alt="About Us"> About Us
+    <br>
+    <img src="https://i.ibb.co/rMvXYWs/courses.png" alt="Courses"> Courses
+    <img src="https://i.ibb.co/RSW8Lkc/events.png" width="20%" alt="Events">Events
+    <br>
+    <img src="https://i.ibb.co/YLsVYDV/tuner.png" alt="Tuner">Guitar Tuner
+    <img src="https://i.ibb.co/61kB6rs/cntacts.png" alt="Contacts">Contacts
+    <h2>Courses page will have same design for every page</h2>
+    <img src="wireframe/course.png" alt="Course pahe wireframe">
+    <div class="attribution">
+        <h2>Media and Content Attribution</h2>
+        <p>
+            I sourced the images used on this website from Freepik.com. I embedded videos from YouTube using HTML code,
+            and I personally recorded and produced all audio content. I am committed to respecting copyright and
+            licensing standards while providing a rich and engaging learning experience.
+        </p>
+        <p>From my perspective, it's important to mention that a significant portion of the images featured on this
+            website were either modified or created entirely by me. This reflects my dedication to crafting unique
+            visual elements and content that you see throughout the site, adding a personal touch to the user
+            experience.</p>
+
+    </div>
+    <div class="tuner-license">
+        <h2>Guitar Tuner Script</h2>
+        <p>
+            The guitar tuner script used on this website is available under a free license. You can find the licensing
+            details in the 'Tuner' folder, allowing you to review and understand the terms of use.
+        </p>
+    </div>
+    <h2>Functional Specification</h2>
+    <p>The "Yuri Guitar School" website will feature the following functionality:</p>
+    <ul>
+        <li>User-Friendly Navigation: A clear and easy-to-use menu for easy access to all pages and resources.</li>
+        <li>Interactive Forms: Separate forms for "Contacts" and "Events," for inquiries, feedback, support, and event
+            registrations.</li>
+        <li>Multimedia Integration: Integration of audio and video players, as well as interactive elements that
+            encourage creativity and active participation.</li>
+        <li>Responsive Design: The site will be designed to be accessible on various devices (desktop, tablet, mobile)
+            (adaptation.css)
+            to facilitate participation and exploration on the go.</li>
+        <li>Guitar Tuner: A working guitar tuner tool for users to tune their guitars with the aid of audible sounds for
+            every string, making it easy to recheck the tuning.</li>
+    </ul>
+    </ul>
+    <h2>Non-Functional Specifications</h2>
+    <p>While the "Yuri Guitar School" website is primarily focused on providing a functional and interactive user
+        experience, it is equally important to consider non-functional specifications to ensure the overall performance,
+        security, and accessibility of the site. The non-functional specifications include:</p>
+    <ol>
+        <li><strong>Performance:</strong> The website will be optimized for speed and responsiveness to provide a
+            seamless user experience. Pages should load quickly, and multimedia elements should play smoothly without
+            disruptions.</li>
+        <li><strong>Accessibility:</strong> The website will adhere to accessibility standards, ensuring that all users,
+            including those with disabilities, can access and navigate the site easily. This includes providing
+            alternative text for images and ensuring compatibility with screen readers.</li>
+        <li><strong>Scalability:</strong> The architecture of the website will be designed to handle potential growth in
+            terms of traffic and content. Scalability ensures that the site can accommodate an increasing number of
+            users and resources without performance degradation.</li>
+        <li><strong>Browser Compatibility:</strong> The website will be tested to ensure compatibility with major web
+            browsers, including Google Chrome, Mozilla Firefox, Apple Safari, Microsoft Edge, and Internet Explorer.
+            This ensures that users can access the site regardless of their chosen browser.</li>
+        <li><strong>Mobile Responsiveness:</strong> The site will be responsive and adapt to different screen sizes and
+            devices, including desktop computers, tablets, and mobile phones, to accommodate users on various platforms.
+        </li>
+        <li><strong>Load Balancing:</strong> Load balancing mechanisms will be in place to distribute incoming web
+            traffic across multiple servers to prevent overload and ensure consistent performance, particularly during
+            peak usage periods.</li>
+    </ol>
+    <h1>Website Comparison - Yuri Guitar School vs. Competitors</h1>
+    <table>
+        <tr>
+            <th>Website</th>
+            <th>Site Address</th>
+            <th>Strengths</th>
+            <th>Weaknesses</th>
+            <th>Opportunities</th>
+        </tr>
+        <tr>
+            <td>Yuri Guitar School</td>
+            <td><a href="#">Yuri Guitar School</a></td>
+            <td>
+                <ul>
+                    <li>Well-structured lessons for all skill levels.</li>
+                    <li>Built-in guitar tuner for user convenience.</li>
+                    <li>High-quality content and user-friendly design.</li>
+                    <li>A supportive and engaged community.</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>Relatively new compared to established competitors.</li>
+                    <li>Limited brand recognition in the industry.</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>Further differentiate by providing unique interactive features.</li>
+                    <li>Expand content and lessons for more in-depth coverage.</li>
+                    <li>Establish partnerships with known musicians or guitar instructors for added credibility.</li>
+                    <li>Leverage your responsive design to attract mobile users.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Guitar World</td>
+            <td><a href="https://www.guitarworld.com">www.guitarworld.com</a></td>
+            <td>
+                <ul>
+                    <li>Comprehensive content and community.</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>Overwhelming content, needs better user experience.</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>Improve user experience and website design.</li>
+                    <li>Consider offering a balance of free and premium content.</li>
+                    <li>Create a more interactive and engaging learning environment.</li>
+                    <li>Explore partnerships with artists or influencers.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Ultimate Guitar</td>
+            <td><a href="https://www.ultimate-guitar.com">www.ultimate-guitar.com</a></td>
+            <td>
+                <ul>
+                    <li>Vast user-generated content.</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>Cluttered interface, inconsistent accuracy.</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>Improve user experience and website design.</li>
+                    <li>Consider offering a balance of free and premium content.</li>
+                    <li>Create a more interactive and engaging learning environment.</li>
+                    <li>Explore partnerships with artists or influencers.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>JustinGuitar</td>
+            <td><a href="https://www.justinguitar.com">www.justinguitar.com</a></td>
+            <td>
+                <ul>
+                    <li>High-quality lessons and YouTube presence.</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>Less interactive, primarily structured lessons.</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>Improve user experience and website design.</li>
+                    <li>Consider offering a balance of free and premium content.</li>
+                    <li>Create a more interactive and engaging learning environment.</li>
+                    <li>Explore partnerships with artists or influencers.</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+    <h2>References</h2>
+    <iframe
+        src="https://ardenuni-my.sharepoint.com/personal/stu171970_ardenuniversity_ac_uk/_layouts/15/Doc.aspx?sourcedoc={484d2674-e109-4f54-bda1-8d998c1daf79}&amp;action=embedview"
+        width="476px" height="288px" frameborder="0">This is an embedded <a target="_blank"
+            href="https://office.com">Microsoft Office</a> document, powered by <a target="_blank"
+            href="https://office.com/webapps">Office</a>.</iframe>
+    <script type="text/javascript" src="https://app.diagrams.net/js/viewer-static.min.js"></script>
+</body>
+
+</html>

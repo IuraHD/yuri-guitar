@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 194.92 87.14">
+  <defs>
+    <style>
+      .cls-1 {
+        font-family: Lato-Bold, Lato;
+        font-size: 19.52px;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-4 {
+        letter-spacing: .3em;
+      }
+
+      .cls-5 {
+        fill: #f9a153;
+        font-family: MonotypeCorsiva, 'Monotype Corsiva';
+        font-size: 57.64px;
+      }
+
+      .cls-3 {
+        font-family: Oswald-Regular, Oswald;
+        font-size: 62.57px;
+        font-variation-settings: 'wght' 400;
+      }
+
+      .cls-6 {
+        letter-spacing: .23em;
+      }
+
+      .cls-7 {
+        letter-spacing: .3em;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <path class="cls-2" d="M28.91,7.29C-8.21,15.32-15,33.93,40.94,81.43c2.74,2.32,6.13,1.59,7.66-1.66C79.91,13.39,66.03-.75,28.91,7.29Z"/>
+      <g>
+        <text class="cls-3" transform="translate(82.86 56.62)"><tspan x="0" y="0">YURI</tspan></text>
+        <text class="cls-1" transform="translate(86.43 83.61)"><tspan class="cls-4" x="0" y="0">GUI</tspan><tspan class="cls-6" x="52.03" y="0">T</tspan><tspan class="cls-7" x="68.07" y="0">AR</tspan></text>
+      </g>
+    </g>
+    <text class="cls-5" transform="translate(25.21 65.81) rotate(-23.4) scale(.82 1)"><tspan x="0" y="0" fill='' >Y</tspan></text>
+  </g>
+</svg>
